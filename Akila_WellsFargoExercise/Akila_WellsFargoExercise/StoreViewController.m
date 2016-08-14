@@ -6,8 +6,13 @@
 //  Copyright © 2016 Akila Sivapathasekaran. All rights reserved.
 //
 
+
 #import "StoreViewController.h"
 #import "StoreViewCell.h"
+
+#define kBlueColor [UIColor colorWithRed:82.0/255.0 green:115.0/255.0 blue:185.0/255.0 alpha:1.0];
+#define kLightGrayColor [UIColor colorWithRed:23.0/255.0 green:28.0/255.0 blue:35.0/255.0 alpha:1.0];
+#define kGrayColor [UIColor colorWithRed:83.0/255.0 green:88.0/255.0 blue:95.0/255.0 alpha:1.0];
 
 @interface StoreViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -15,6 +20,12 @@
 @property (nonatomic, strong) NSMutableArray *dataSourceArray;
 
 @property (nonatomic, assign) CGPoint lastOffset;
+@property (weak, nonatomic) IBOutlet UIButton *shopButton;
+@property (weak, nonatomic) IBOutlet UIButton *eventButton;
+@property (weak, nonatomic) IBOutlet UIButton *bookShopperButton;
+@property (weak, nonatomic) IBOutlet UIButton *offerButton;
+@property (weak, nonatomic) IBOutlet UIButton *loyaltyButton;
+
 @end
 
 @implementation StoreViewController
@@ -27,10 +38,46 @@
     UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStyleDone target:self action:@selector(menuTapped:)];
     UIBarButtonItem *profileButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"person"] style:UIBarButtonItemStyleDone target:self action:@selector(profileTapped:)];
     
-    menuButton.tintColor = [UIColor colorWithRed:82.0/255.0 green:115.0/255.0 blue:185.0/255.0 alpha:1.0];
-    profileButton.tintColor = [UIColor colorWithRed:82.0/255.0 green:115.0/255.0 blue:185.0/255.0 alpha:1.0];
     [self.navigationItem setLeftBarButtonItem:menuButton];
     [self.navigationItem setRightBarButtonItem:profileButton];
+    
+    menuButton.tintColor = kBlueColor;
+    profileButton.tintColor = kBlueColor;
+    
+    UIImage *shopImage = [[UIImage imageNamed:@"cart"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [self.shopButton setImage:shopImage forState:UIControlStateNormal];
+    self.shopButton.tintColor = [UIColor whiteColor];
+    self.shopButton.imageEdgeInsets = UIEdgeInsetsMake(0, -190, 0, 0);
+    self.shopButton.titleEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
+    self.shopButton.backgroundColor = kBlueColor;
+    
+    UIImage *eventsImage = [[UIImage imageNamed:@"events"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [self.eventButton setImage:eventsImage forState:UIControlStateNormal];
+    self.eventButton.tintColor = [UIColor whiteColor];
+    self.eventButton.imageEdgeInsets = UIEdgeInsetsMake(0, -180, 0, 0);
+    self.eventButton.titleEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+    self.eventButton.backgroundColor = kGrayColor;
+    
+    UIImage *shopperImage = [[UIImage imageNamed:@"bag"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [self.bookShopperButton setImage:shopperImage forState:UIControlStateNormal];
+    self.bookShopperButton.tintColor = [UIColor whiteColor];
+    self.bookShopperButton.imageEdgeInsets = UIEdgeInsetsMake(0, -40, 0, 0);
+    self.bookShopperButton.titleEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+    self.bookShopperButton.backgroundColor = kGrayColor;
+    
+    UIImage *offerImage = [[UIImage imageNamed:@"tag"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [self.offerButton setImage:offerImage forState:UIControlStateNormal];
+    self.offerButton.tintColor = [UIColor whiteColor];
+    self.offerButton.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
+    self.offerButton.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+    self.offerButton.backgroundColor = kGrayColor;
+    
+    UIImage *loyaltyImage = [[UIImage imageNamed:@"trophy"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [self.loyaltyButton setImage:loyaltyImage forState:UIControlStateNormal];
+    self.loyaltyButton.tintColor = [UIColor whiteColor];
+    self.loyaltyButton.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
+    self.loyaltyButton.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+    self.loyaltyButton.backgroundColor = kGrayColor;
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
@@ -39,6 +86,9 @@
     self.dataSourceArray = [NSMutableArray arrayWithObjects:@"fruits1",@"fruits2",@"fruits3",@"fruits4",nil];
 
     self.pageControl.numberOfPages = self.dataSourceArray.count;
+    self.pageControl.pageIndicatorTintColor = kLightGrayColor;
+    self.pageControl.currentPageIndicatorTintColor = kBlueColor;
+    self.pageControl.currentPage = 3;
     
     id firstItem = [self.dataSourceArray firstObject];
     id lastItem = [self.dataSourceArray lastObject];
@@ -47,11 +97,10 @@
     [workingArray insertObject:lastItem atIndex:0];
     [workingArray addObject:firstItem];
     self.dataSourceArray = workingArray;
+    self.collectionView.scrollEnabled = YES;
+    
     
 //    [self.collectionView scrollRectToVisible:CGRectMake(276, 0, self.collectionView.frame.size.width, self.collectionView.frame.size.height) animated:YES];
-    
-    
-   
 }
 
 - (void) viewWillAppear:(BOOL)animated {

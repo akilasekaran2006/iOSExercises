@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import <LocalAuthentication/LocalAuthentication.h>
 
 @interface LoginViewController ()
 
@@ -24,7 +25,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -32,6 +33,69 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
+- (void)performSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    //loginToStoreView
+}
+
+- (IBAction)loginTapped:(id)sender {
+    
+    LAContext *context = [[LAContext alloc] init];
+    
+    NSError *error = nil;
+    if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
+        [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
+                localizedReason:@"Are you the device owner?"
+                          reply:^(BOOL success, NSError *error) {
+                              
+                              if (error) {
+                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                  message:@"There was a problem verifying your identity."
+                                                                                 delegate:nil
+                                                                        cancelButtonTitle:@"Ok"
+                                                                        otherButtonTitles:nil];
+                                  [alert show];
+                                  return;
+                              }
+                              
+                              if (success) {
+                                  [self performSegueWithIdentifier:@"loginToStoreView" sender:sender];
+//                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success"
+//                                                                                  message:@"You are the device owner!"
+//                                                                                 delegate:nil
+//                                                                        cancelButtonTitle:@"Ok"
+//                                                                        otherButtonTitles:nil];
+//                                  [alert show];
+                                  
+                              } else {
+                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                  message:@"You are not the device owner."
+                                                                                 delegate:nil
+                                                                        cancelButtonTitle:@"Ok"
+                                                                        otherButtonTitles:nil];
+                                  [alert show];
+                              }
+                              
+                          }];
+        
+    } else {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:@"Your device cannot authenticate using TouchID."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+        [alert show];
+        
+    }
+}
+
+
+
+// touch id
+// autolayout
+// border for all
+// add to cart method
+
 
 @end

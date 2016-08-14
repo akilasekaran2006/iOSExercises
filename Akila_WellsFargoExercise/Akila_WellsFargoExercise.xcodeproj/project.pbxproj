@@ -17,6 +17,8 @@
 		C021B70E1D5F6D4E008B437C /* Akila_WellsFargoExerciseUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C021B70D1D5F6D4E008B437C /* Akila_WellsFargoExerciseUITests.m */; };
 		C021B71D1D5F72CA008B437C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C021B71C1D5F72CA008B437C /* LoginViewController.m */; };
 		C021B7201D5F72F9008B437C /* StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C021B71F1D5F72F9008B437C /* StoreViewController.m */; };
+		C02C0AA91D605CCB005A5A39 /* ShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C02C0AA81D605CCB005A5A39 /* ShopViewController.m */; };
+		C02C0AAC1D605F2B005A5A39 /* ShopCartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C02C0AAB1D605F2B005A5A39 /* ShopCartCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,10 @@
 		C021B71C1D5F72CA008B437C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		C021B71E1D5F72F9008B437C /* StoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreViewController.h; sourceTree = "<group>"; };
 		C021B71F1D5F72F9008B437C /* StoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreViewController.m; sourceTree = "<group>"; };
+		C02C0AA71D605CCB005A5A39 /* ShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopViewController.h; sourceTree = "<group>"; };
+		C02C0AA81D605CCB005A5A39 /* ShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopViewController.m; sourceTree = "<group>"; };
+		C02C0AAA1D605F2B005A5A39 /* ShopCartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCartCell.h; sourceTree = "<group>"; };
+		C02C0AAB1D605F2B005A5A39 /* ShopCartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCartCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,10 +117,14 @@
 				C021B6EC1D5F6D3F008B437C /* AppDelegate.m */,
 				C021B71B1D5F72CA008B437C /* LoginViewController.h */,
 				C021B71C1D5F72CA008B437C /* LoginViewController.m */,
-				C021B71E1D5F72F9008B437C /* StoreViewController.h */,
 				C000F0AD1D5FA7D300565EF1 /* StoreViewCell.h */,
 				C000F0AE1D5FA7D300565EF1 /* StoreViewCell.m */,
+				C02C0AAA1D605F2B005A5A39 /* ShopCartCell.h */,
+				C02C0AAB1D605F2B005A5A39 /* ShopCartCell.m */,
+				C021B71E1D5F72F9008B437C /* StoreViewController.h */,
 				C021B71F1D5F72F9008B437C /* StoreViewController.m */,
+				C02C0AA71D605CCB005A5A39 /* ShopViewController.h */,
+				C02C0AA81D605CCB005A5A39 /* ShopViewController.m */,
 				C021B6F11D5F6D40008B437C /* Main.storyboard */,
 				C021B6F41D5F6D41008B437C /* Assets.xcassets */,
 				C021B6F61D5F6D42008B437C /* LaunchScreen.storyboard */,
@@ -282,9 +292,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C000F0B01D5FA7D300565EF1 /* StoreViewCell.m in Sources */,
+				C02C0AAC1D605F2B005A5A39 /* ShopCartCell.m in Sources */,
 				C021B7201D5F72F9008B437C /* StoreViewController.m in Sources */,
 				C021B71D1D5F72CA008B437C /* LoginViewController.m in Sources */,
 				C021B6ED1D5F6D3F008B437C /* AppDelegate.m in Sources */,
+				C02C0AA91D605CCB005A5A39 /* ShopViewController.m in Sources */,
 				C021B6EA1D5F6D3F008B437C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
