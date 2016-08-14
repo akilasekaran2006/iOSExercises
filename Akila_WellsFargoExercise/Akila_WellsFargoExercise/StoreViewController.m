@@ -9,7 +9,7 @@
 #import "StoreViewController.h"
 #import "StoreViewCell.h"
 
-@interface StoreViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface StoreViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (nonatomic, strong) NSMutableArray *dataSourceArray;
@@ -22,9 +22,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationItem.hidesBackButton = YES;
+    
+    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStyleDone target:self action:@selector(menuTapped:)];
+    UIBarButtonItem *profileButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"person"] style:UIBarButtonItemStyleDone target:self action:@selector(profileTapped:)];
+    
+    menuButton.tintColor = [UIColor colorWithRed:82.0/255.0 green:115.0/255.0 blue:185.0/255.0 alpha:1.0];
+    profileButton.tintColor = [UIColor colorWithRed:82.0/255.0 green:115.0/255.0 blue:185.0/255.0 alpha:1.0];
+    [self.navigationItem setLeftBarButtonItem:menuButton];
+    [self.navigationItem setRightBarButtonItem:profileButton];
+    
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    flowLayout.itemSize = CGSizeMake(276, 192);
     [self.collectionView setCollectionViewLayout:flowLayout];
     
     self.dataSourceArray = [NSMutableArray arrayWithObjects:@"fruits1",@"fruits2",@"fruits3",@"fruits4",nil];
@@ -40,13 +49,19 @@
     self.dataSourceArray = workingArray;
     
 //    [self.collectionView scrollRectToVisible:CGRectMake(276, 0, self.collectionView.frame.size.width, self.collectionView.frame.size.height) animated:YES];
-    [self.collectionView setContentOffset:CGPointMake(276, 0) animated:NO];
     
     
+   
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+//    NSDictionary *viewsDictionary = @{@"collectionView":self.collectionView,@"pageControl":self.pageControl};
+//    NSArray *constraint_POS_H = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[collectionView]"
+//                                                                        options:0
+//                                                                        metrics:nil
+//                                                                          views:viewsDictionary];
+//    [self.collectionView addConstraints:constraint_POS_H];
     
 }
 
@@ -123,6 +138,22 @@
     CGFloat pageWidth = self.collectionView.frame.size.width;
     self.pageControl.currentPage = self.collectionView.contentOffset.x / pageWidth - 1;
     NSLog(@"Page : %f",self.collectionView.contentOffset.x);
+    
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    CGSize innerSize = CGSizeMake(collectionView.frame.size.width, collectionView.frame.size.height);
+    
+    return innerSize;
+    
+}
+
+- (void) menuTapped:(id)sender {
+    
+}
+
+- (void)profileTapped:(id)sender{
     
 }
 
