@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ShoppingCart.h"
+#import "Product.h"
 
 @interface ShopCartCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UILabel *productName;
@@ -15,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *productPic;
 @property (weak, nonatomic) IBOutlet UIButton *addToCartButton;
 
+@property (strong, nonatomic) Product *product;
 - (IBAction)addToCartTapped:(id)sender;
 @end

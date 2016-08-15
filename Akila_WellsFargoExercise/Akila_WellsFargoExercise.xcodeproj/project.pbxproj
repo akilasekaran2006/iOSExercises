@@ -19,6 +19,9 @@
 		C021B7201D5F72F9008B437C /* StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C021B71F1D5F72F9008B437C /* StoreViewController.m */; };
 		C02C0AA91D605CCB005A5A39 /* ShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C02C0AA81D605CCB005A5A39 /* ShopViewController.m */; };
 		C02C0AAC1D605F2B005A5A39 /* ShopCartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C02C0AAB1D605F2B005A5A39 /* ShopCartCell.m */; };
+		C04F47C21D60EA3800EF7835 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = C04F47C11D60EA3800EF7835 /* Product.m */; };
+		C04F47C51D611BA800EF7835 /* ShoppingCart.m in Sources */ = {isa = PBXBuildFile; fileRef = C04F47C41D611BA800EF7835 /* ShoppingCart.m */; };
+		C04F47C81D61281700EF7835 /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = C04F47C71D61281600EF7835 /* UIBarButtonItem+Badge.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,12 @@
 		C02C0AA81D605CCB005A5A39 /* ShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopViewController.m; sourceTree = "<group>"; };
 		C02C0AAA1D605F2B005A5A39 /* ShopCartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCartCell.h; sourceTree = "<group>"; };
 		C02C0AAB1D605F2B005A5A39 /* ShopCartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCartCell.m; sourceTree = "<group>"; };
+		C04F47C01D60EA3800EF7835 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
+		C04F47C11D60EA3800EF7835 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
+		C04F47C31D611BA800EF7835 /* ShoppingCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCart.h; sourceTree = "<group>"; };
+		C04F47C41D611BA800EF7835 /* ShoppingCart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCart.m; sourceTree = "<group>"; };
+		C04F47C61D61281600EF7835 /* UIBarButtonItem+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Badge.h"; sourceTree = "<group>"; };
+		C04F47C71D61281600EF7835 /* UIBarButtonItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Badge.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,16 +124,10 @@
 			children = (
 				C021B6EB1D5F6D3F008B437C /* AppDelegate.h */,
 				C021B6EC1D5F6D3F008B437C /* AppDelegate.m */,
-				C021B71B1D5F72CA008B437C /* LoginViewController.h */,
-				C021B71C1D5F72CA008B437C /* LoginViewController.m */,
-				C000F0AD1D5FA7D300565EF1 /* StoreViewCell.h */,
-				C000F0AE1D5FA7D300565EF1 /* StoreViewCell.m */,
-				C02C0AAA1D605F2B005A5A39 /* ShopCartCell.h */,
-				C02C0AAB1D605F2B005A5A39 /* ShopCartCell.m */,
-				C021B71E1D5F72F9008B437C /* StoreViewController.h */,
-				C021B71F1D5F72F9008B437C /* StoreViewController.m */,
-				C02C0AA71D605CCB005A5A39 /* ShopViewController.h */,
-				C02C0AA81D605CCB005A5A39 /* ShopViewController.m */,
+				C04F47CF1D613B9F00EF7835 /* View Controller */,
+				C04F47CE1D613B9100EF7835 /* Models */,
+				C04F47CC1D613B1B00EF7835 /* Bar Button Category */,
+				C04F47CD1D613B7900EF7835 /* Custom Cells */,
 				C021B6F11D5F6D40008B437C /* Main.storyboard */,
 				C021B6F41D5F6D41008B437C /* Assets.xcassets */,
 				C021B6F61D5F6D42008B437C /* LaunchScreen.storyboard */,
@@ -158,6 +161,50 @@
 				C021B70F1D5F6D4F008B437C /* Info.plist */,
 			);
 			path = Akila_WellsFargoExerciseUITests;
+			sourceTree = "<group>";
+		};
+		C04F47CC1D613B1B00EF7835 /* Bar Button Category */ = {
+			isa = PBXGroup;
+			children = (
+				C04F47C61D61281600EF7835 /* UIBarButtonItem+Badge.h */,
+				C04F47C71D61281600EF7835 /* UIBarButtonItem+Badge.m */,
+			);
+			name = "Bar Button Category";
+			sourceTree = "<group>";
+		};
+		C04F47CD1D613B7900EF7835 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C000F0AD1D5FA7D300565EF1 /* StoreViewCell.h */,
+				C000F0AE1D5FA7D300565EF1 /* StoreViewCell.m */,
+				C02C0AAA1D605F2B005A5A39 /* ShopCartCell.h */,
+				C02C0AAB1D605F2B005A5A39 /* ShopCartCell.m */,
+			);
+			name = "Custom Cells";
+			sourceTree = "<group>";
+		};
+		C04F47CE1D613B9100EF7835 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C04F47C01D60EA3800EF7835 /* Product.h */,
+				C04F47C11D60EA3800EF7835 /* Product.m */,
+				C04F47C31D611BA800EF7835 /* ShoppingCart.h */,
+				C04F47C41D611BA800EF7835 /* ShoppingCart.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		C04F47CF1D613B9F00EF7835 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C021B71B1D5F72CA008B437C /* LoginViewController.h */,
+				C021B71C1D5F72CA008B437C /* LoginViewController.m */,
+				C021B71E1D5F72F9008B437C /* StoreViewController.h */,
+				C021B71F1D5F72F9008B437C /* StoreViewController.m */,
+				C02C0AA71D605CCB005A5A39 /* ShopViewController.h */,
+				C02C0AA81D605CCB005A5A39 /* ShopViewController.m */,
+			);
+			name = "View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,7 +342,10 @@
 				C02C0AAC1D605F2B005A5A39 /* ShopCartCell.m in Sources */,
 				C021B7201D5F72F9008B437C /* StoreViewController.m in Sources */,
 				C021B71D1D5F72CA008B437C /* LoginViewController.m in Sources */,
+				C04F47C81D61281700EF7835 /* UIBarButtonItem+Badge.m in Sources */,
 				C021B6ED1D5F6D3F008B437C /* AppDelegate.m in Sources */,
+				C04F47C51D611BA800EF7835 /* ShoppingCart.m in Sources */,
+				C04F47C21D60EA3800EF7835 /* Product.m in Sources */,
 				C02C0AA91D605CCB005A5A39 /* ShopViewController.m in Sources */,
 				C021B6EA1D5F6D3F008B437C /* main.m in Sources */,
 			);

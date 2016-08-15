@@ -7,6 +7,7 @@
 //
 
 #import "ShopCartCell.h"
+
 #define kBlueColor [UIColor colorWithRed:82.0/255.0 green:115.0/255.0 blue:185.0/255.0 alpha:1.0];
 
 @implementation ShopCartCell
@@ -16,12 +17,20 @@
     if (self = [super initWithCoder:aDecoder]) {
         
         // Initialization code
-        self.addToCartButton.backgroundColor = kBlueColor;
         
     }
     return self;
 }
 
-- (IBAction)addToCartTapped:(id)sender {
+- (void)awakeFromNib {
+    self.addToCartButton.backgroundColor = kBlueColor;
+    [self.addToCartButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 }
+
+- (IBAction)addToCartTapped:(id)sender {
+    
+    [[ShoppingCart sharedCart] addProduct:self.product];
+}
+
+
 @end
